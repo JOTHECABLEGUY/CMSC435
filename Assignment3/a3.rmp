@@ -1,0 +1,2157 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.011">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.10.011" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV" width="90" x="45" y="85">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role" width="90" x="179" y="85">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="k_nn" compatibility="9.10.011" expanded="true" height="82" name="k-NN" width="90" x="447" y="85">
+        <parameter key="k" value="5"/>
+        <parameter key="weighted_vote" value="true"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="GeneralizedIDivergence"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model" width="90" x="581" y="85">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (2)" width="90" x="45" y="187">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (2)" width="90" x="179" y="187">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="103" name="Split Data (2)" width="90" x="313" y="187">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="k_nn" compatibility="9.10.011" expanded="true" height="82" name="k-NN (2)" width="90" x="447" y="187">
+        <parameter key="k" value="5"/>
+        <parameter key="weighted_vote" value="true"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="GeneralizedIDivergence"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (2)" width="90" x="581" y="187">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="knn_half_def_perf" width="90" x="715" y="187">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (3)" width="90" x="45" y="289">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (3)" width="90" x="179" y="289">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="knn_3cross_def_perf" width="90" x="715" y="289">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="k_nn" compatibility="9.10.011" expanded="true" height="82" name="k-NN (3)" width="90" x="179" y="34">
+            <parameter key="k" value="5"/>
+            <parameter key="weighted_vote" value="true"/>
+            <parameter key="measure_types" value="MixedMeasures"/>
+            <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+            <parameter key="nominal_measure" value="NominalDistance"/>
+            <parameter key="numerical_measure" value="EuclideanDistance"/>
+            <parameter key="divergence" value="GeneralizedIDivergence"/>
+            <parameter key="kernel_type" value="radial"/>
+            <parameter key="kernel_gamma" value="1.0"/>
+            <parameter key="kernel_sigma1" value="1.0"/>
+            <parameter key="kernel_sigma2" value="0.0"/>
+            <parameter key="kernel_sigma3" value="2.0"/>
+            <parameter key="kernel_degree" value="3.0"/>
+            <parameter key="kernel_shift" value="1.0"/>
+            <parameter key="kernel_a" value="1.0"/>
+            <parameter key="kernel_b" value="0.0"/>
+          </operator>
+          <connect from_port="training set" to_op="k-NN (3)" to_port="training set"/>
+          <connect from_op="k-NN (3)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (3)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="knn_3cross (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (3)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (3)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (3)" from_port="labelled data" to_op="knn_3cross (2)" to_port="labelled data"/>
+          <connect from_op="knn_3cross (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (4)" width="90" x="45" y="442">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (4)" width="90" x="179" y="442">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="naive_bayes" compatibility="9.10.011" expanded="true" height="82" name="Naive Bayes" width="90" x="447" y="442">
+        <parameter key="laplace_correction" value="true"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (5)" width="90" x="45" y="544">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (5)" width="90" x="179" y="544">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (6)" width="90" x="45" y="646">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (6)" width="90" x="179" y="646">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="naive_bayes_3cross_def_perf" width="90" x="715" y="646">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="naive_bayes" compatibility="9.10.011" expanded="true" height="82" name="Naive Bayes (3)" width="90" x="179" y="34">
+            <parameter key="laplace_correction" value="true"/>
+          </operator>
+          <connect from_port="training set" to_op="Naive Bayes (3)" to_port="training set"/>
+          <connect from_op="Naive Bayes (3)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (6)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="naive_bayes_3cross (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (6)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (6)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (6)" from_port="labelled data" to_op="naive_bayes_3cross (2)" to_port="labelled data"/>
+          <connect from_op="naive_bayes_3cross (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (7)" width="90" x="45" y="799">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (7)" width="90" x="179" y="799">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="perceptron" compatibility="9.10.011" expanded="true" height="82" name="Perceptron" width="90" x="447" y="799">
+        <parameter key="rounds" value="3"/>
+        <parameter key="learning_rate" value="0.05"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (8)" width="90" x="45" y="901">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (8)" width="90" x="179" y="901">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="82" name="Split Data (3)" width="90" x="313" y="901">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="perceptron" compatibility="9.10.011" expanded="true" height="82" name="Perceptron (2)" width="90" x="447" y="901">
+        <parameter key="rounds" value="3"/>
+        <parameter key="learning_rate" value="0.05"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (9)" width="90" x="45" y="1003">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (9)" width="90" x="179" y="1003">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="percept_3cross_def_perf" width="90" x="715" y="1003">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="perceptron" compatibility="9.10.011" expanded="true" height="82" name="Perceptron (3)" width="90" x="179" y="34">
+            <parameter key="rounds" value="3"/>
+            <parameter key="learning_rate" value="0.05"/>
+          </operator>
+          <connect from_port="training set" to_op="Perceptron (3)" to_port="training set"/>
+          <connect from_op="Perceptron (3)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (9)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="percept_3cross (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (9)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (9)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (9)" from_port="labelled data" to_op="percept_3cross (2)" to_port="labelled data"/>
+          <connect from_op="percept_3cross (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (10)" width="90" x="45" y="1156">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (10)" width="90" x="179" y="1156">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.011" expanded="true" height="103" name="Decision Tree" width="90" x="447" y="1156">
+        <parameter key="criterion" value="gain_ratio"/>
+        <parameter key="maximal_depth" value="10"/>
+        <parameter key="apply_pruning" value="true"/>
+        <parameter key="confidence" value="0.1"/>
+        <parameter key="apply_prepruning" value="true"/>
+        <parameter key="minimal_gain" value="0.01"/>
+        <parameter key="minimal_leaf_size" value="2"/>
+        <parameter key="minimal_size_for_split" value="4"/>
+        <parameter key="number_of_prepruning_alternatives" value="3"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (11)" width="90" x="45" y="1258">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (11)" width="90" x="179" y="1258">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="knn_full_def_perf" width="90" x="715" y="85">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (12)" width="90" x="45" y="1360">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (12)" width="90" x="179" y="1360">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="tree_3cross_def_perf" width="90" x="715" y="1360">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.011" expanded="true" height="103" name="Decision Tree (3)" width="90" x="179" y="34">
+            <parameter key="criterion" value="gain_ratio"/>
+            <parameter key="maximal_depth" value="10"/>
+            <parameter key="apply_pruning" value="true"/>
+            <parameter key="confidence" value="0.1"/>
+            <parameter key="apply_prepruning" value="true"/>
+            <parameter key="minimal_gain" value="0.01"/>
+            <parameter key="minimal_leaf_size" value="2"/>
+            <parameter key="minimal_size_for_split" value="4"/>
+            <parameter key="number_of_prepruning_alternatives" value="3"/>
+          </operator>
+          <connect from_port="training set" to_op="Decision Tree (3)" to_port="training set"/>
+          <connect from_op="Decision Tree (3)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (10)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="tree_3cross_def_perf (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (10)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (10)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (10)" from_port="labelled data" to_op="tree_3cross_def_perf (2)" to_port="labelled data"/>
+          <connect from_op="tree_3cross_def_perf (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (4)" width="90" x="581" y="442">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="naive_bayes_full_def_perf" width="90" x="715" y="442">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="103" name="Split Data" width="90" x="313" y="544">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="naive_bayes" compatibility="9.10.011" expanded="true" height="82" name="Naive Bayes (2)" width="90" x="447" y="544">
+        <parameter key="laplace_correction" value="true"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (5)" width="90" x="581" y="544">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="naive_bayes_half_def_perf" width="90" x="715" y="544">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (7)" width="90" x="581" y="799">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="percept_full_def_perf" width="90" x="715" y="799">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (8)" width="90" x="581" y="901">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="percept_half_def_perf" width="90" x="715" y="901">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="103" name="Split Data (4)" width="90" x="313" y="1258">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.011" expanded="true" height="103" name="Decision Tree (2)" width="90" x="447" y="1258">
+        <parameter key="criterion" value="gain_ratio"/>
+        <parameter key="maximal_depth" value="10"/>
+        <parameter key="apply_pruning" value="true"/>
+        <parameter key="confidence" value="0.1"/>
+        <parameter key="apply_prepruning" value="true"/>
+        <parameter key="minimal_gain" value="0.01"/>
+        <parameter key="minimal_leaf_size" value="2"/>
+        <parameter key="minimal_size_for_split" value="4"/>
+        <parameter key="number_of_prepruning_alternatives" value="3"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (11)" width="90" x="581" y="1156">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="tree_full_def_perf" width="90" x="715" y="1156">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (12)" width="90" x="581" y="1258">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="tree_half_def_perf" width="90" x="715" y="1258">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (13)" width="90" x="45" y="1615">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (13)" width="90" x="179" y="1615">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="k_nn" compatibility="9.10.011" expanded="true" height="82" name="k-NN (4)" width="90" x="447" y="1615">
+        <parameter key="k" value="2"/>
+        <parameter key="weighted_vote" value="true"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="GeneralizedIDivergence"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (13)" width="90" x="581" y="1615">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (14)" width="90" x="45" y="1717">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (14)" width="90" x="179" y="1717">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="82" name="Split Data (5)" width="90" x="313" y="1717">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="k_nn" compatibility="9.10.011" expanded="true" height="82" name="k-NN (5)" width="90" x="447" y="1717">
+        <parameter key="k" value="10"/>
+        <parameter key="weighted_vote" value="true"/>
+        <parameter key="measure_types" value="MixedMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="GeneralizedIDivergence"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (14)" width="90" x="581" y="1717">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="knn_half_mod_perf" width="90" x="715" y="1717">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (15)" width="90" x="45" y="1819">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (15)" width="90" x="179" y="1819">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="knn_3cross_mod_perf" width="90" x="715" y="1819">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="k_nn" compatibility="9.10.011" expanded="true" height="82" name="k-NN (6)" width="90" x="179" y="34">
+            <parameter key="k" value="9"/>
+            <parameter key="weighted_vote" value="true"/>
+            <parameter key="measure_types" value="MixedMeasures"/>
+            <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+            <parameter key="nominal_measure" value="NominalDistance"/>
+            <parameter key="numerical_measure" value="EuclideanDistance"/>
+            <parameter key="divergence" value="GeneralizedIDivergence"/>
+            <parameter key="kernel_type" value="radial"/>
+            <parameter key="kernel_gamma" value="1.0"/>
+            <parameter key="kernel_sigma1" value="1.0"/>
+            <parameter key="kernel_sigma2" value="0.0"/>
+            <parameter key="kernel_sigma3" value="2.0"/>
+            <parameter key="kernel_degree" value="3.0"/>
+            <parameter key="kernel_shift" value="1.0"/>
+            <parameter key="kernel_a" value="1.0"/>
+            <parameter key="kernel_b" value="0.0"/>
+          </operator>
+          <connect from_port="training set" to_op="k-NN (6)" to_port="training set"/>
+          <connect from_op="k-NN (6)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (15)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="knn_3cross_mod_perf (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (15)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (15)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (15)" from_port="labelled data" to_op="knn_3cross_mod_perf (2)" to_port="labelled data"/>
+          <connect from_op="knn_3cross_mod_perf (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="knn_full_mod_perf" width="90" x="715" y="1615">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (16)" width="90" x="45" y="1972">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (16)" width="90" x="179" y="1972">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="naive_bayes" compatibility="9.10.011" expanded="true" height="82" name="Naive Bayes (4)" width="90" x="447" y="1972">
+        <parameter key="laplace_correction" value="true"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (17)" width="90" x="45" y="2074">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (17)" width="90" x="179" y="2074">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (18)" width="90" x="45" y="2176">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (18)" width="90" x="179" y="2176">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="naive_bayes_3cross_mod_perf" width="90" x="715" y="2176">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="naive_bayes" compatibility="9.10.011" expanded="true" height="82" name="Naive Bayes (5)" width="90" x="179" y="34">
+            <parameter key="laplace_correction" value="true"/>
+          </operator>
+          <connect from_port="training set" to_op="Naive Bayes (5)" to_port="training set"/>
+          <connect from_op="Naive Bayes (5)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (16)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="naive_bayes_3cross_mod_perf (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (16)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (16)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (16)" from_port="labelled data" to_op="naive_bayes_3cross_mod_perf (2)" to_port="labelled data"/>
+          <connect from_op="naive_bayes_3cross_mod_perf (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (19)" width="90" x="45" y="2329">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (19)" width="90" x="179" y="2329">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="perceptron" compatibility="9.10.011" expanded="true" height="82" name="Perceptron (4)" width="90" x="447" y="2329">
+        <parameter key="rounds" value="20"/>
+        <parameter key="learning_rate" value="0.05"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (20)" width="90" x="45" y="2431">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (20)" width="90" x="179" y="2431">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="82" name="Split Data (6)" width="90" x="313" y="2431">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="perceptron" compatibility="9.10.011" expanded="true" height="82" name="Perceptron (5)" width="90" x="447" y="2431">
+        <parameter key="rounds" value="8"/>
+        <parameter key="learning_rate" value="0.05"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (21)" width="90" x="45" y="2533">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (21)" width="90" x="179" y="2533">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="percept_3cross_mod_perf" width="90" x="715" y="2533">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="perceptron" compatibility="9.10.011" expanded="true" height="82" name="Perceptron (6)" width="90" x="179" y="34">
+            <parameter key="rounds" value="50"/>
+            <parameter key="learning_rate" value="0.05"/>
+          </operator>
+          <connect from_port="training set" to_op="Perceptron (6)" to_port="training set"/>
+          <connect from_op="Perceptron (6)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (17)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="percept_3cross_mod_perf (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (17)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (17)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (17)" from_port="labelled data" to_op="percept_3cross_mod_perf (2)" to_port="labelled data"/>
+          <connect from_op="percept_3cross_mod_perf (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (22)" width="90" x="45" y="2686">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (22)" width="90" x="179" y="2686">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.011" expanded="true" height="103" name="Decision Tree (4)" width="90" x="447" y="2686">
+        <parameter key="criterion" value="gini_index"/>
+        <parameter key="maximal_depth" value="31"/>
+        <parameter key="apply_pruning" value="true"/>
+        <parameter key="confidence" value="0.01"/>
+        <parameter key="apply_prepruning" value="true"/>
+        <parameter key="minimal_gain" value="0.01"/>
+        <parameter key="minimal_leaf_size" value="2"/>
+        <parameter key="minimal_size_for_split" value="4"/>
+        <parameter key="number_of_prepruning_alternatives" value="3"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (23)" width="90" x="45" y="2788">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (23)" width="90" x="179" y="2788">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.10.011" expanded="true" height="68" name="Read CSV (24)" width="90" x="45" y="2890">
+        <parameter key="csv_file" value="C:/Users/jzdub/OneDrive/Desktop/VCU/Fall 2022 Semester/CMSC 435/Assignment3/dataset_a3.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.011" expanded="true" height="82" name="Set Role (24)" width="90" x="179" y="2890">
+        <parameter key="attribute_name" value="Class"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.011" expanded="true" height="145" name="tree_3cross_mod_perf" width="90" x="715" y="2890">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="3"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.011" expanded="true" height="103" name="Decision Tree (5)" width="90" x="179" y="34">
+            <parameter key="criterion" value="accuracy"/>
+            <parameter key="maximal_depth" value="20"/>
+            <parameter key="apply_pruning" value="true"/>
+            <parameter key="confidence" value="0.1"/>
+            <parameter key="apply_prepruning" value="true"/>
+            <parameter key="minimal_gain" value="0.01"/>
+            <parameter key="minimal_leaf_size" value="2"/>
+            <parameter key="minimal_size_for_split" value="4"/>
+            <parameter key="number_of_prepruning_alternatives" value="3"/>
+          </operator>
+          <connect from_port="training set" to_op="Decision Tree (5)" to_port="training set"/>
+          <connect from_op="Decision Tree (5)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (18)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="tree_3cross_mod_perf (2)" width="90" x="246" y="34">
+            <parameter key="main_criterion" value="first"/>
+            <parameter key="accuracy" value="true"/>
+            <parameter key="classification_error" value="false"/>
+            <parameter key="kappa" value="false"/>
+            <parameter key="weighted_mean_recall" value="false"/>
+            <parameter key="weighted_mean_precision" value="false"/>
+            <parameter key="spearman_rho" value="false"/>
+            <parameter key="kendall_tau" value="false"/>
+            <parameter key="absolute_error" value="false"/>
+            <parameter key="relative_error" value="false"/>
+            <parameter key="relative_error_lenient" value="false"/>
+            <parameter key="relative_error_strict" value="false"/>
+            <parameter key="normalized_absolute_error" value="false"/>
+            <parameter key="root_mean_squared_error" value="false"/>
+            <parameter key="root_relative_squared_error" value="false"/>
+            <parameter key="squared_error" value="false"/>
+            <parameter key="correlation" value="false"/>
+            <parameter key="squared_correlation" value="false"/>
+            <parameter key="cross-entropy" value="false"/>
+            <parameter key="margin" value="false"/>
+            <parameter key="soft_margin_loss" value="false"/>
+            <parameter key="logistic_loss" value="false"/>
+            <parameter key="skip_undefined_labels" value="true"/>
+            <parameter key="use_example_weights" value="true"/>
+            <list key="class_weights"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (18)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (18)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (18)" from_port="labelled data" to_op="tree_3cross_mod_perf (2)" to_port="labelled data"/>
+          <connect from_op="tree_3cross_mod_perf (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (19)" width="90" x="581" y="1972">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="naive_bayes_full_mod_perf" width="90" x="715" y="1972">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="103" name="Split Data (7)" width="90" x="313" y="2074">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="naive_bayes" compatibility="9.10.011" expanded="true" height="82" name="Naive Bayes (6)" width="90" x="447" y="2074">
+        <parameter key="laplace_correction" value="true"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (20)" width="90" x="581" y="2074">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="naive_bayes_half_mod_perf" width="90" x="715" y="2074">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (21)" width="90" x="581" y="2329">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="percept_full_mod_perf" width="90" x="715" y="2329">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (22)" width="90" x="581" y="2431">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="percept_half_mod_perf" width="90" x="715" y="2431">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="9.10.011" expanded="true" height="82" name="Split Data (8)" width="90" x="313" y="2788">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.5"/>
+          <parameter key="ratio" value="0.5"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.011" expanded="true" height="103" name="Decision Tree (6)" width="90" x="447" y="2788">
+        <parameter key="criterion" value="accuracy"/>
+        <parameter key="maximal_depth" value="10"/>
+        <parameter key="apply_pruning" value="true"/>
+        <parameter key="confidence" value="0.1"/>
+        <parameter key="apply_prepruning" value="true"/>
+        <parameter key="minimal_gain" value="0.01"/>
+        <parameter key="minimal_leaf_size" value="2"/>
+        <parameter key="minimal_size_for_split" value="4"/>
+        <parameter key="number_of_prepruning_alternatives" value="3"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (23)" width="90" x="581" y="2686">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="tree_full_mod_perf" width="90" x="715" y="2686">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.011" expanded="true" height="82" name="Apply Model (24)" width="90" x="581" y="2788">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_classification" compatibility="9.10.011" expanded="true" height="82" name="tree_half_mod_perf" width="90" x="715" y="2788">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="weighted_mean_recall" value="false"/>
+        <parameter key="weighted_mean_precision" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_mean_squared_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="cross-entropy" value="false"/>
+        <parameter key="margin" value="false"/>
+        <parameter key="soft_margin_loss" value="false"/>
+        <parameter key="logistic_loss" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+        <list key="class_weights"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Set Role" to_port="example set input"/>
+      <connect from_op="Set Role" from_port="example set output" to_op="k-NN" to_port="training set"/>
+      <connect from_op="k-NN" from_port="model" to_op="Apply Model" to_port="model"/>
+      <connect from_op="k-NN" from_port="exampleSet" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="knn_full_def_perf" to_port="labelled data"/>
+      <connect from_op="Read CSV (2)" from_port="output" to_op="Set Role (2)" to_port="example set input"/>
+      <connect from_op="Set Role (2)" from_port="example set output" to_op="Split Data (2)" to_port="example set"/>
+      <connect from_op="Split Data (2)" from_port="partition 1" to_op="k-NN (2)" to_port="training set"/>
+      <connect from_op="Split Data (2)" from_port="partition 2" to_op="Apply Model (2)" to_port="unlabelled data"/>
+      <connect from_op="k-NN (2)" from_port="model" to_op="Apply Model (2)" to_port="model"/>
+      <connect from_op="Apply Model (2)" from_port="labelled data" to_op="knn_half_def_perf" to_port="labelled data"/>
+      <connect from_op="knn_half_def_perf" from_port="performance" to_port="result 14"/>
+      <connect from_op="Read CSV (3)" from_port="output" to_op="Set Role (3)" to_port="example set input"/>
+      <connect from_op="Set Role (3)" from_port="example set output" to_op="knn_3cross_def_perf" to_port="example set"/>
+      <connect from_op="knn_3cross_def_perf" from_port="performance 1" to_port="result 15"/>
+      <connect from_op="Read CSV (4)" from_port="output" to_op="Set Role (4)" to_port="example set input"/>
+      <connect from_op="Set Role (4)" from_port="example set output" to_op="Naive Bayes" to_port="training set"/>
+      <connect from_op="Naive Bayes" from_port="model" to_op="Apply Model (4)" to_port="model"/>
+      <connect from_op="Naive Bayes" from_port="exampleSet" to_op="Apply Model (4)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (5)" from_port="output" to_op="Set Role (5)" to_port="example set input"/>
+      <connect from_op="Set Role (5)" from_port="example set output" to_op="Split Data" to_port="example set"/>
+      <connect from_op="Read CSV (6)" from_port="output" to_op="Set Role (6)" to_port="example set input"/>
+      <connect from_op="Set Role (6)" from_port="example set output" to_op="naive_bayes_3cross_def_perf" to_port="example set"/>
+      <connect from_op="naive_bayes_3cross_def_perf" from_port="performance 1" to_port="result 18"/>
+      <connect from_op="Read CSV (7)" from_port="output" to_op="Set Role (7)" to_port="example set input"/>
+      <connect from_op="Set Role (7)" from_port="example set output" to_op="Perceptron" to_port="training set"/>
+      <connect from_op="Perceptron" from_port="model" to_op="Apply Model (7)" to_port="model"/>
+      <connect from_op="Perceptron" from_port="exampleSet" to_op="Apply Model (7)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (8)" from_port="output" to_op="Set Role (8)" to_port="example set input"/>
+      <connect from_op="Set Role (8)" from_port="example set output" to_op="Split Data (3)" to_port="example set"/>
+      <connect from_op="Split Data (3)" from_port="partition 1" to_op="Perceptron (2)" to_port="training set"/>
+      <connect from_op="Perceptron (2)" from_port="model" to_op="Apply Model (8)" to_port="model"/>
+      <connect from_op="Perceptron (2)" from_port="exampleSet" to_op="Apply Model (8)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (9)" from_port="output" to_op="Set Role (9)" to_port="example set input"/>
+      <connect from_op="Set Role (9)" from_port="example set output" to_op="percept_3cross_def_perf" to_port="example set"/>
+      <connect from_op="percept_3cross_def_perf" from_port="performance 1" to_port="result 21"/>
+      <connect from_op="Read CSV (10)" from_port="output" to_op="Set Role (10)" to_port="example set input"/>
+      <connect from_op="Set Role (10)" from_port="example set output" to_op="Decision Tree" to_port="training set"/>
+      <connect from_op="Decision Tree" from_port="model" to_op="Apply Model (11)" to_port="model"/>
+      <connect from_op="Decision Tree" from_port="exampleSet" to_op="Apply Model (11)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (11)" from_port="output" to_op="Set Role (11)" to_port="example set input"/>
+      <connect from_op="Set Role (11)" from_port="example set output" to_op="Split Data (4)" to_port="example set"/>
+      <connect from_op="knn_full_def_perf" from_port="performance" to_port="result 1"/>
+      <connect from_op="Read CSV (12)" from_port="output" to_op="Set Role (12)" to_port="example set input"/>
+      <connect from_op="Set Role (12)" from_port="example set output" to_op="tree_3cross_def_perf" to_port="example set"/>
+      <connect from_op="tree_3cross_def_perf" from_port="performance 1" to_port="result 24"/>
+      <connect from_op="Apply Model (4)" from_port="labelled data" to_op="naive_bayes_full_def_perf" to_port="labelled data"/>
+      <connect from_op="naive_bayes_full_def_perf" from_port="performance" to_port="result 16"/>
+      <connect from_op="Split Data" from_port="partition 1" to_op="Naive Bayes (2)" to_port="training set"/>
+      <connect from_op="Split Data" from_port="partition 2" to_op="Apply Model (5)" to_port="unlabelled data"/>
+      <connect from_op="Naive Bayes (2)" from_port="model" to_op="Apply Model (5)" to_port="model"/>
+      <connect from_op="Apply Model (5)" from_port="labelled data" to_op="naive_bayes_half_def_perf" to_port="labelled data"/>
+      <connect from_op="naive_bayes_half_def_perf" from_port="performance" to_port="result 17"/>
+      <connect from_op="Apply Model (7)" from_port="labelled data" to_op="percept_full_def_perf" to_port="labelled data"/>
+      <connect from_op="percept_full_def_perf" from_port="performance" to_port="result 19"/>
+      <connect from_op="Apply Model (8)" from_port="labelled data" to_op="percept_half_def_perf" to_port="labelled data"/>
+      <connect from_op="percept_half_def_perf" from_port="performance" to_port="result 20"/>
+      <connect from_op="Split Data (4)" from_port="partition 1" to_op="Decision Tree (2)" to_port="training set"/>
+      <connect from_op="Split Data (4)" from_port="partition 2" to_op="Apply Model (12)" to_port="unlabelled data"/>
+      <connect from_op="Decision Tree (2)" from_port="model" to_op="Apply Model (12)" to_port="model"/>
+      <connect from_op="Apply Model (11)" from_port="labelled data" to_op="tree_full_def_perf" to_port="labelled data"/>
+      <connect from_op="tree_full_def_perf" from_port="performance" to_port="result 22"/>
+      <connect from_op="Apply Model (12)" from_port="labelled data" to_op="tree_half_def_perf" to_port="labelled data"/>
+      <connect from_op="tree_half_def_perf" from_port="performance" to_port="result 23"/>
+      <connect from_op="Read CSV (13)" from_port="output" to_op="Set Role (13)" to_port="example set input"/>
+      <connect from_op="Set Role (13)" from_port="example set output" to_op="k-NN (4)" to_port="training set"/>
+      <connect from_op="k-NN (4)" from_port="model" to_op="Apply Model (13)" to_port="model"/>
+      <connect from_op="k-NN (4)" from_port="exampleSet" to_op="Apply Model (13)" to_port="unlabelled data"/>
+      <connect from_op="Apply Model (13)" from_port="labelled data" to_op="knn_full_mod_perf" to_port="labelled data"/>
+      <connect from_op="Read CSV (14)" from_port="output" to_op="Set Role (14)" to_port="example set input"/>
+      <connect from_op="Set Role (14)" from_port="example set output" to_op="Split Data (5)" to_port="example set"/>
+      <connect from_op="Split Data (5)" from_port="partition 1" to_op="k-NN (5)" to_port="training set"/>
+      <connect from_op="k-NN (5)" from_port="model" to_op="Apply Model (14)" to_port="model"/>
+      <connect from_op="k-NN (5)" from_port="exampleSet" to_op="Apply Model (14)" to_port="unlabelled data"/>
+      <connect from_op="Apply Model (14)" from_port="labelled data" to_op="knn_half_mod_perf" to_port="labelled data"/>
+      <connect from_op="knn_half_mod_perf" from_port="performance" to_port="result 3"/>
+      <connect from_op="Read CSV (15)" from_port="output" to_op="Set Role (15)" to_port="example set input"/>
+      <connect from_op="Set Role (15)" from_port="example set output" to_op="knn_3cross_mod_perf" to_port="example set"/>
+      <connect from_op="knn_3cross_mod_perf" from_port="performance 1" to_port="result 4"/>
+      <connect from_op="knn_full_mod_perf" from_port="performance" to_port="result 2"/>
+      <connect from_op="Read CSV (16)" from_port="output" to_op="Set Role (16)" to_port="example set input"/>
+      <connect from_op="Set Role (16)" from_port="example set output" to_op="Naive Bayes (4)" to_port="training set"/>
+      <connect from_op="Naive Bayes (4)" from_port="model" to_op="Apply Model (19)" to_port="model"/>
+      <connect from_op="Naive Bayes (4)" from_port="exampleSet" to_op="Apply Model (19)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (17)" from_port="output" to_op="Set Role (17)" to_port="example set input"/>
+      <connect from_op="Set Role (17)" from_port="example set output" to_op="Split Data (7)" to_port="example set"/>
+      <connect from_op="Read CSV (18)" from_port="output" to_op="Set Role (18)" to_port="example set input"/>
+      <connect from_op="Set Role (18)" from_port="example set output" to_op="naive_bayes_3cross_mod_perf" to_port="example set"/>
+      <connect from_op="naive_bayes_3cross_mod_perf" from_port="performance 1" to_port="result 7"/>
+      <connect from_op="Read CSV (19)" from_port="output" to_op="Set Role (19)" to_port="example set input"/>
+      <connect from_op="Set Role (19)" from_port="example set output" to_op="Perceptron (4)" to_port="training set"/>
+      <connect from_op="Perceptron (4)" from_port="model" to_op="Apply Model (21)" to_port="model"/>
+      <connect from_op="Perceptron (4)" from_port="exampleSet" to_op="Apply Model (21)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (20)" from_port="output" to_op="Set Role (20)" to_port="example set input"/>
+      <connect from_op="Set Role (20)" from_port="example set output" to_op="Split Data (6)" to_port="example set"/>
+      <connect from_op="Split Data (6)" from_port="partition 1" to_op="Perceptron (5)" to_port="training set"/>
+      <connect from_op="Perceptron (5)" from_port="model" to_op="Apply Model (22)" to_port="model"/>
+      <connect from_op="Perceptron (5)" from_port="exampleSet" to_op="Apply Model (22)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (21)" from_port="output" to_op="Set Role (21)" to_port="example set input"/>
+      <connect from_op="Set Role (21)" from_port="example set output" to_op="percept_3cross_mod_perf" to_port="example set"/>
+      <connect from_op="percept_3cross_mod_perf" from_port="performance 1" to_port="result 10"/>
+      <connect from_op="Read CSV (22)" from_port="output" to_op="Set Role (22)" to_port="example set input"/>
+      <connect from_op="Set Role (22)" from_port="example set output" to_op="Decision Tree (4)" to_port="training set"/>
+      <connect from_op="Decision Tree (4)" from_port="model" to_op="Apply Model (23)" to_port="model"/>
+      <connect from_op="Decision Tree (4)" from_port="exampleSet" to_op="Apply Model (23)" to_port="unlabelled data"/>
+      <connect from_op="Read CSV (23)" from_port="output" to_op="Set Role (23)" to_port="example set input"/>
+      <connect from_op="Set Role (23)" from_port="example set output" to_op="Split Data (8)" to_port="example set"/>
+      <connect from_op="Read CSV (24)" from_port="output" to_op="Set Role (24)" to_port="example set input"/>
+      <connect from_op="Set Role (24)" from_port="example set output" to_op="tree_3cross_mod_perf" to_port="example set"/>
+      <connect from_op="tree_3cross_mod_perf" from_port="performance 1" to_port="result 13"/>
+      <connect from_op="Apply Model (19)" from_port="labelled data" to_op="naive_bayes_full_mod_perf" to_port="labelled data"/>
+      <connect from_op="naive_bayes_full_mod_perf" from_port="performance" to_port="result 5"/>
+      <connect from_op="Split Data (7)" from_port="partition 1" to_op="Naive Bayes (6)" to_port="training set"/>
+      <connect from_op="Split Data (7)" from_port="partition 2" to_op="Apply Model (20)" to_port="unlabelled data"/>
+      <connect from_op="Naive Bayes (6)" from_port="model" to_op="Apply Model (20)" to_port="model"/>
+      <connect from_op="Apply Model (20)" from_port="labelled data" to_op="naive_bayes_half_mod_perf" to_port="labelled data"/>
+      <connect from_op="naive_bayes_half_mod_perf" from_port="performance" to_port="result 6"/>
+      <connect from_op="Apply Model (21)" from_port="labelled data" to_op="percept_full_mod_perf" to_port="labelled data"/>
+      <connect from_op="percept_full_mod_perf" from_port="performance" to_port="result 8"/>
+      <connect from_op="Apply Model (22)" from_port="labelled data" to_op="percept_half_mod_perf" to_port="labelled data"/>
+      <connect from_op="percept_half_mod_perf" from_port="performance" to_port="result 9"/>
+      <connect from_op="Split Data (8)" from_port="partition 1" to_op="Decision Tree (6)" to_port="training set"/>
+      <connect from_op="Decision Tree (6)" from_port="model" to_op="Apply Model (24)" to_port="model"/>
+      <connect from_op="Decision Tree (6)" from_port="exampleSet" to_op="Apply Model (24)" to_port="unlabelled data"/>
+      <connect from_op="Apply Model (23)" from_port="labelled data" to_op="tree_full_mod_perf" to_port="labelled data"/>
+      <connect from_op="tree_full_mod_perf" from_port="performance" to_port="result 11"/>
+      <connect from_op="Apply Model (24)" from_port="labelled data" to_op="tree_half_mod_perf" to_port="labelled data"/>
+      <connect from_op="tree_half_mod_perf" from_port="performance" to_port="result 12"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+      <portSpacing port="sink_result 6" spacing="0"/>
+      <portSpacing port="sink_result 7" spacing="0"/>
+      <portSpacing port="sink_result 8" spacing="0"/>
+      <portSpacing port="sink_result 9" spacing="0"/>
+      <portSpacing port="sink_result 10" spacing="0"/>
+      <portSpacing port="sink_result 11" spacing="0"/>
+      <portSpacing port="sink_result 12" spacing="0"/>
+      <portSpacing port="sink_result 13" spacing="0"/>
+      <portSpacing port="sink_result 14" spacing="0"/>
+      <portSpacing port="sink_result 15" spacing="0"/>
+      <portSpacing port="sink_result 16" spacing="0"/>
+      <portSpacing port="sink_result 17" spacing="0"/>
+      <portSpacing port="sink_result 18" spacing="0"/>
+      <portSpacing port="sink_result 19" spacing="0"/>
+      <portSpacing port="sink_result 20" spacing="0"/>
+      <portSpacing port="sink_result 21" spacing="0"/>
+      <portSpacing port="sink_result 22" spacing="0"/>
+      <portSpacing port="sink_result 23" spacing="0"/>
+      <portSpacing port="sink_result 24" spacing="0"/>
+      <portSpacing port="sink_result 25" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="67" resized="false" width="126" x="298" y="393">NAIVE BAYES DEFAULT MODELING&lt;br&gt;</description>
+      <description align="center" color="yellow" colored="false" height="50" resized="false" width="126" x="299" y="56">KNN DEFAULT MODELING</description>
+      <description align="center" color="yellow" colored="false" height="66" resized="false" width="126" x="296" y="753">PERCEPTRON DEFAULT MODELING</description>
+      <description align="center" color="yellow" colored="false" height="67" resized="false" width="126" x="299" y="1113">DECISION TREE DEFAULT MODELING</description>
+      <description align="center" color="yellow" colored="false" height="50" resized="false" width="126" x="298" y="1588">KNN MODIFIED MODELING</description>
+      <description align="center" color="yellow" colored="false" height="67" resized="false" width="126" x="297" y="1928">NAIVE BAYES MODIFIED MODELING</description>
+      <description align="center" color="yellow" colored="false" height="67" resized="false" width="126" x="296" y="2283">PERCEPTRON MODIFIED MODELING</description>
+      <description align="center" color="yellow" colored="false" height="67" resized="false" width="126" x="294" y="2644">DECISION TREE MODIFIED MODELING</description>
+      <description align="center" color="yellow" colored="false" height="50" resized="false" width="126" x="64" y="10">DEFAULT MODELS</description>
+      <description align="center" color="yellow" colored="false" height="50" resized="false" width="126" x="26" y="1522">MODIFIED MODELS</description>
+    </process>
+  </operator>
+</process>
